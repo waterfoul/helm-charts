@@ -72,7 +72,10 @@ spec:
                   name: {{ template "datadog-operator.apiKeySecretName" . }}
                   key: api-key
             {{- end }}
-            {{- if or .Values.appKey .Values.appKeyExistingSecret }}
+            {{- if .Values.appKeyRawValue }}
+            - name: DD_APP_KEY
+              value: {{ .Values.appKeyRawValue }}
+            {{- else if or .Values.appKey .Values.appKeyExistingSecret }}
             - name: DD_APP_KEY
               valueFrom:
                 secretKeyRef:

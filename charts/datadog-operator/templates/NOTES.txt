@@ -10,7 +10,7 @@ One can sign up for a free Datadog trial at https://app.datadoghq.com/signup
 Once registered you can request an API key at https://app.datadoghq.com/account/settings#agent/kubernetes
     {{- end }}
 
-    {{- if (and ( not .Values.appKeyExistingSecret) (not .Values.appKey)) }}
+    {{- if (and (not .Values.appKeyRawValue) ( not .Values.appKeyExistingSecret) (not .Values.appKey)) }}
 ##############################################################################
 ####               ERROR: You did not set a appKey value.                 ####
 ##############################################################################

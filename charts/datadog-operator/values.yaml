@@ -19,6 +19,9 @@ apiKeyRawValue: # datadog-api-key@inject
 # appKey -- Your Datadog APP key
 appKey:  # <DATADOG_APP_KEY>
 
+## If set, this parameter takes precedence over "appKey" and "appKeyExistingSecret" allows you to set a raw value of the api key, useful when using secrets injectors
+appKeyRawValue: # datadog-app-key@inject
+
 # site -- The site of the Datadog intake to send data to (documentation: https://docs.datadoghq.com/getting_started/site/)
 
 ## Set to 'datadoghq.com' to send data to the US1 site (default).

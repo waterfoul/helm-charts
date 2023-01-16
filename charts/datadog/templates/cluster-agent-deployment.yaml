@@ -139,11 +139,16 @@ spec:
           {{- end }}
           {{- include "components-common-env" . | nindent 10 }}
           {{- if .Values.clusterAgent.metricsProvider.enabled }}
+          {{- if .Values.datadog.appKeyRawValue }}
+            - name: DD_APP_KEY
+              value: {{ .Values.datadog.appKeyRawValue }}
+          {{- else }}
           - name: DD_APP_KEY
             valueFrom:
               secretKeyRef:
                 name: {{ template "datadog.appKeySecretName" . }}
                 key: app-key
+          {{- end }}
           - name: DD_EXTERNAL_METRICS_PROVIDER_ENABLED
             value: {{ .Values.clusterAgent.metricsProvider.enabled | quote }}
           - name: DD_EXTERNAL_METRICS_PROVIDER_PORT
@@ -214,7 +219,7 @@ spec:
             value: {{ template "datadog.fullname" . }}-cluster-agent
           {{- if .Values.clusterAgent.tokenRawValue }}
           - name: DD_CLUSTER_AGENT_AUTH_TOKEN
-            value: .Values.clusterAgent.tokenRawValue
+            value: {{ .Values.clusterAgent.tokenRawValue }}
           {{- else }}
           - name: DD_CLUSTER_AGENT_AUTH_TOKEN
             valueFrom:
