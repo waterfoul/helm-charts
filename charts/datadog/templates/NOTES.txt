@@ -1,4 +1,4 @@
-{{- if (or (.Values.datadog.apiKeyExistingSecret) (.Values.datadog.apiKey)) }}
+{{- if (or (.Values.datadog.apiKeyRawValue) (.Values.datadog.apiKeyExistingSecret) (.Values.datadog.apiKey)) }}
 Datadog agents are spinning up on each node in your cluster. After a few
 minutes, you should see your agents starting in your event stream:
     https://app.datadoghq.com/event/explorer

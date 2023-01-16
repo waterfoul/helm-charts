@@ -4,11 +4,16 @@
 # Needs to be removed when Agent N-2 is built with Golang 1.17
 - name: GODEBUG
   value: x509ignoreCN=0
+{{- if .Values.datadog.apiKeyRawValue }}
+- name: DD_API_KEY
+  value: {{ .Values.datadog.apiKeyRawValue }}
+{{- else }}
 - name: DD_API_KEY
   valueFrom:
     secretKeyRef:
       name: {{ template "datadog.apiSecretName" . }}
       key: api-key
+{{- end }}
 - name: DD_AUTH_TOKEN_FILE_PATH
   value: /etc/datadog-agent/auth/token
 {{ include "components-common-env" . }}

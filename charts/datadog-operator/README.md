@@ -9,6 +9,7 @@
 | affinity | object | `{}` | Allows to specify affinity for Datadog Operator PODs |
 | apiKey | string | `nil` | Your Datadog API key |
 | apiKeyExistingSecret | string | `nil` | Use existing Secret which stores API key instead of creating a new one |
+| datadog.apiKeyExistingSecret | string | `nil` | Use existing Secret which stores API key instead of creating a new one. The value should be set with the `api-key` key inside the secret. |
 | appKey | string | `nil` | Your Datadog APP key |
 | appKeyExistingSecret | string | `nil` | Use existing Secret which stores APP key instead of creating a new one |
 | collectOperatorMetrics | bool | `true` | Configures an openmetrics check to collect operator metrics |

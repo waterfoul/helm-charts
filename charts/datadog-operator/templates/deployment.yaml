@@ -62,7 +62,10 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
-            {{- if or .Values.apiKey .Values.apiKeyExistingSecret }}
+            {{- if or .Values.apiKeyRawValue }}
+            - name: DD_API_KEY
+              value: {{ .Values.apiKeyRawValue }}
+            {{- else if or .Values.apiKey .Values.apiKeyExistingSecret }}
             - name: DD_API_KEY
               valueFrom:
                 secretKeyRef:

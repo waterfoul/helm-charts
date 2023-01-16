@@ -37,6 +37,9 @@ datadog:
   ## If set, this parameter takes precedence over "apiKey".
   apiKeyExistingSecret:  # <DATADOG_API_KEY_SECRET>
 
+  ## If set, this parameter takes precedence over "apiKey" and "apiKeyExistingSecret" allows you to set a raw value of the api key, useful when using secrets injectors
+  apiKeyRawValue: # datadog-api-key@inject
+
   # datadog.appKey -- Datadog APP key required to use metricsProvider
 
   ## If you are using clusterAgent.metricsProvider.enabled = true, you must set

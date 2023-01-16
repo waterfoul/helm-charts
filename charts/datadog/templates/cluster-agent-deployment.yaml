@@ -126,12 +126,17 @@ spec:
           - name: DD_HEALTH_PORT
           {{- $healthPort := .Values.clusterAgent.healthPort }}
             value: {{ $healthPort | quote }}
+          {{- if .Values.datadog.apiKeyRawValue }}
+          - name: DD_API_KEY
+            value: {{ .Values.datadog.apiKeyRawValue }}
+          {{- else }}
           - name: DD_API_KEY
             valueFrom:
               secretKeyRef:
                 name: {{ template "datadog.apiSecretName" . }}
                 key: api-key
                 optional: true
+          {{- end }}
           {{- include "components-common-env" . | nindent 10 }}
           {{- if .Values.clusterAgent.metricsProvider.enabled }}
           - name: DD_APP_KEY
