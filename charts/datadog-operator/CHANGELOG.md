@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.0
+
+* Add the ability to set a raw value for api and app keys
+
 ## 0.9.2
 
 * Updating CRD dependency to DatadogMonitors and DatadogAgent.

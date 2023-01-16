@@ -1,5 +1,9 @@
 # Datadog changelog
 
+## 3.8.0
+
+* Add the ability to set a raw value for api and app keys
+
 ## 3.7.2
 
 * Rename dogstatsd port on the Agent Service to match the name of the dogstatsd port in the Agent pod (`dogstatsd -> dogstatsdport`).
