@@ -13,11 +13,15 @@ apiKey:  # <DATADOG_API_KEY>
 ## If set, this parameter takes precedence over "apiKey".
 apiKeyExistingSecret:  # <DATADOG_API_KEY_SECRET>
 
+# apiKeyRawValue -- Raw value to use instead of a secret. Intended to be used with an env injector
+
 ## If set, this parameter takes precedence over "apiKey" and "apiKeyExistingSecret" allows you to set a raw value of the api key, useful when using secrets injectors
 apiKeyRawValue: # datadog-api-key@inject
 
 # appKey -- Your Datadog APP key
 appKey:  # <DATADOG_APP_KEY>
+
+# appKeyRawValue -- Raw value to use instead of a secret. Intended to be used with an env injector
 
 ## If set, this parameter takes precedence over "appKey" and "appKeyExistingSecret" allows you to set a raw value of the api key, useful when using secrets injectors
 appKeyRawValue: # datadog-app-key@inject

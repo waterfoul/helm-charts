@@ -9,10 +9,10 @@
 | affinity | object | `{}` | Allows to specify affinity for Datadog Operator PODs |
 | apiKey | string | `nil` | Your Datadog API key |
 | apiKeyExistingSecret | string | `nil` | Use existing Secret which stores API key instead of creating a new one |
-| datadog.apiKeyExistingSecret | string | `nil` | Use existing Secret which stores API key instead of creating a new one. The value should be set with the `api-key` key inside the secret. |
+| apiKeyRawValue | string | `nil` | Raw value to use instead of a secret. Intended to be used with an env injector |
 | appKey | string | `nil` | Your Datadog APP key |
 | appKeyExistingSecret | string | `nil` | Use existing Secret which stores APP key instead of creating a new one |
-| appKeyRawValue | string | `""` | Raw value to use instead of a secret. Intended to be used with an env injector |
+| appKeyRawValue | string | `nil` | Raw value to use instead of a secret. Intended to be used with an env injector |
 | collectOperatorMetrics | bool | `true` | Configures an openmetrics check to collect operator metrics |
 | containerSecurityContext | object | `{}` | A security context defines privileges and access control settings for a container. |
 | datadog-crds.crds.datadogAgents | bool | `true` | Set to true to deploy the DatadogAgents CRD |

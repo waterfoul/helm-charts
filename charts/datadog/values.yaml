@@ -37,6 +37,8 @@ datadog:
   ## If set, this parameter takes precedence over "apiKey".
   apiKeyExistingSecret:  # <DATADOG_API_KEY_SECRET>
 
+  # datadog.apiKeyRawValue -- Raw value to use instead of a secret. Intended to be used with an env injector
+
   ## If set, this parameter takes precedence over "apiKey" and "apiKeyExistingSecret" allows you to set a raw value of the api key, useful when using secrets injectors
   apiKeyRawValue: # datadog-api-key@inject
 
@@ -50,6 +52,8 @@ datadog:
 
   ## If set, this parameter takes precedence over "appKey".
   appKeyExistingSecret:  # <DATADOG_APP_KEY_SECRET>
+
+  # datadog.appKeyRawValue -- Raw value to use instead of a secret. Intended to be used with an env injector
 
   ## If set, this parameter takes precedence over "appKey" and "appKeyExistingSecret" allows you to set a raw value of the api key, useful when using secrets injectors
   appKeyRawValue: # datadog-app-key@inject
@@ -838,6 +842,8 @@ clusterAgent:
 
   # clusterAgent.tokenExistingSecret -- Existing secret name to use for Cluster Agent token. Put the Cluster Agent token in a key named `token` inside the Secret
   tokenExistingSecret: ""
+
+  # clusterAgent.tokenRawValue -- Raw value to use instead of a secret. Intended to be used with an env injector
 
   ## If set, this parameter takes precedence over "token" and "tokenExistingSecret" allows you to set a raw value of the api key, useful when using secrets injectors
   tokenRawValue: # datadog-cluster-agent-password@inject
