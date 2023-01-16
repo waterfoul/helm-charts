@@ -1,0 +1,6 @@
+# Empty values file for testing default parameters.
+datadog:
+  apiKeyRawValue: "raw-api-key"
+  appKeyRawValue: "raw-app-key"
+clusterAgent:
+  tokenRawValue: "raw-token"
