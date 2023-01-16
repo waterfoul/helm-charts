@@ -836,6 +836,9 @@ clusterAgent:
   # clusterAgent.tokenExistingSecret -- Existing secret name to use for Cluster Agent token. Put the Cluster Agent token in a key named `token` inside the Secret
   tokenExistingSecret: ""
 
+  ## If set, this parameter takes precedence over "token" and "tokenExistingSecret" allows you to set a raw value of the api key, useful when using secrets injectors
+  tokenRawValue: # datadog-cluster-agent-password@inject
+
   # clusterAgent.replicas -- Specify the of cluster agent replicas, if > 1 it allow the cluster agent to work in HA mode.
   replicas: 1
 

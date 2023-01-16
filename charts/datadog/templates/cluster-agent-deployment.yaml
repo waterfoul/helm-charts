@@ -212,11 +212,16 @@ spec:
           {{- end }}
           - name: DD_CLUSTER_AGENT_KUBERNETES_SERVICE_NAME
             value: {{ template "datadog.fullname" . }}-cluster-agent
+          {{- if .Values.clusterAgent.tokenRawValue }}
+          - name: DD_CLUSTER_AGENT_AUTH_TOKEN
+            value: .Values.clusterAgent.tokenRawValue
+          {{- else }}
           - name: DD_CLUSTER_AGENT_AUTH_TOKEN
             valueFrom:
               secretKeyRef:
                 name: {{ template "clusterAgent.tokenSecretName" . }}
                 key: token
+          {{- end }}
           - name: DD_CLUSTER_AGENT_COLLECT_KUBERNETES_TAGS
             value: {{ .Values.datadog.clusterTagger.collectKubernetesTags | quote }}
           - name: DD_KUBE_RESOURCES_NAMESPACE
